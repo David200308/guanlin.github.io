@@ -1,3 +1,3 @@
-# guanlin.github.io
+# guanlin.life
 ---
 Guanlin Jiang Personal Website
