@@ -135,7 +135,7 @@ SELECT AVG(s.gpa), e.cid
 
 #### Display:
 
-<img src="/Users/davidjiang/Library/Application Support/typora-user-images/image-20220514185653747.png" alt="image-20220514185653747" style="zoom:70%;" />
+<img src="./img/image-20220514185653747.png" alt="image-20220514185653747" style="zoom:70%;" />
 
 Non-aggregated values in SELECT output clause must appear in GROUP BY clause. For example:
 
@@ -162,7 +162,7 @@ SELECT AVG(s.gpa) AS avg_gpa, e.cid
 
 #### Display:
 
-<img src="/Users/davidjiang/Library/Application Support/typora-user-images/image-20220514190528979.png" alt="image-20220514190528979" style="zoom:70%;" />
+<img src="./img/image-20220514190528979.png" alt="image-20220514190528979" style="zoom:70%;" />
 
 
 
@@ -303,7 +303,7 @@ SELECT sid FROM enrolled
 	ORDER BY grade DESC, sid ASC
 ```
 
-#3 Display ==> <img src="/Users/davidjiang/Library/Application Support/typora-user-images/image-20220514193957999.png" alt="image-20220514193957999" style="zoom:70%;" />
+#3 Display ==> <img src="./img/image-20220514193957999.png" alt="image-20220514193957999" style="zoom:70%;" />
 
 ```sql
 SELECT sid FROM enrolled
@@ -383,7 +383,7 @@ SELECT * FROM student
   )
 ```
 
-Display ==> <img src="/Users/davidjiang/Library/Application Support/typora-user-images/image-20220514195713633.png" alt="image-20220514195713633" style="zoom:70%;" />
+Display ==> <img src="./img/image-20220514195713633.png" alt="image-20220514195713633" style="zoom:70%;" />
 
 
 
