@@ -105,7 +105,7 @@ pop();
 pop();
 ```
 
-<img src="/Users/davidjiang/Library/Application Support/typora-user-images/image-20220519193535200.png" alt="image-20220519193535200" style="zoom:50%;" />
+<img src="./img/image-20220519193535200.png" alt="image-20220519193535200" style="zoom:50%;" />
 
 
 
