@@ -16,6 +16,10 @@
 
 
 
+There does not seem to be consistent terminology for inserting and removing elements from queues.
+
+### Enqueue = Adding = Offering
+
 
 
 
