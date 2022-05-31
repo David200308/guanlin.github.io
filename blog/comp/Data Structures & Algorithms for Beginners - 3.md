@@ -69,7 +69,7 @@ Enqueue(-6);
 
 <img src="./img/image-20220531103730294.png" alt="image-20220531103730294" style="zoom:50%;" />
 
-<img src="/Users/davidjiang/Desktop/GithHub Repo/guanlin.life/blog/comp/img/image-20220531103730300.png" alt="image-20220531103730300" style="zoom:52%;" />
+<img src="./img/image-20220531103730300.png" alt="image-20220531103730300" style="zoom:51%;" />
 
 ### 1. Pseudo-code:
 
