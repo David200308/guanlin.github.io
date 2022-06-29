@@ -234,7 +234,7 @@ public class Main {
 
 ## C. Ternary Search
 
-<img src="/Users/davidjiang/Desktop/GithHub Repo/guanlin.life/blog/comp/search-gif/ternary-search.png" alt="ternary-search" style="zoom:75%;" />
+<img src="./search-gif/ternary-search.png" alt="ternary-search" style="zoom:75%;" />
 
 ### 1. Time
 
