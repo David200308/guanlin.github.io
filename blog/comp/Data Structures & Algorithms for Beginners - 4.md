@@ -20,6 +20,8 @@
 | **Total**    | O(n)   | O(n ^ 2)  |
 |              | Linear | Quadratic |
 
+
+
 ### 2. Code
 
 ```java
@@ -66,7 +68,7 @@ public class bubbleSort {
 | **Total**    | O(n ^ 2)  | O(n ^ 2)  |
 |              | Quadratic | Quadratic |
 
-### 
+
 
 ### 2. Code
 
@@ -109,7 +111,7 @@ public class selectionSort {
 | **Total**    | O(n)   | O(n ^ 2)  |
 |              | Linear | Quadratic |
 
-### 
+
 
 ### 2. Code
 
@@ -144,7 +146,7 @@ public class insertionSort {
 | **Total** | O(n log n) | O(n log n) |
 | Space     | O(n)       | O(n)       |
 
-### 
+
 
 ### 2. Code
 
@@ -214,7 +216,7 @@ public class mergeSort {
 | **Total**    | O(n log n) | O(n ^ 2) |
 | Space        | O(log n)   | O(n)     |
 
-### 
+
 
 ### 2. Code
 
@@ -271,7 +273,7 @@ Space: O(k)
 | **Total**       | O(n + k) |
 |                 | Linear   |
 
-### 
+
 
 ### 2. Code
 
