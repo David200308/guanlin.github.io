@@ -4,6 +4,10 @@ Guanlin Jiang Personal Website
 
 Content:
   - About
+    - About Me
+    - My Devices
+    - What I'm Interested In
+    - University & Company
   
   - Resume
     - Education
@@ -15,6 +19,10 @@ Content:
     - My Pragramming Skills
     
   - Blog
+    - Computer Science
+    - English Learning
+    - Life
+    - Math
   
   - Contact
   
