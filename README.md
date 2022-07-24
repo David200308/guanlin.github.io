@@ -2,7 +2,10 @@
 
 Guanlin Jiang Personal Website
 
-Content:
+## Programming Language:
+  - HTML + CSS + JS
+
+## Content:
   - About
     - About Me
     - My Devices
