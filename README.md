@@ -17,7 +17,7 @@
     - Programming Experience
     - Research Experience
     - Award & Certificate & Honors
-    - University Club
+    - Society
     - My Pragramming Skills
     
   - Blog
