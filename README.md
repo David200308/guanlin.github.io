@@ -8,9 +8,8 @@
 ## Content:
   - About
     - About Me
-    - My Devices
     - What I'm Interested In
-    - University & Company
+    - My Devices
   
   - Resume
     - Education
@@ -18,7 +17,7 @@
     - Programming Experience
     - Research Experience
     - Award & Certificate & Honors
-    - University Club
+    - Society
     - My Pragramming Skills
     
   - Blog
